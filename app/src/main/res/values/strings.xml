@@ -17,4 +17,7 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="trip_planner">Trip Planner</string>
+    <string name="display_plans">Display Plans</string>
+    <string name="edit_plan">Edit Plan</string>
 </resources>

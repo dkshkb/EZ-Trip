@@ -24,7 +24,8 @@
             android:exported="true" />
         <activity
             android:name=".PlannerActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".VideoActivity"
             android:exported="true" />
