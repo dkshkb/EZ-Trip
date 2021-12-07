@@ -99,12 +99,12 @@ class MainActivity : AppCompatActivity() {
 
             when(it.itemId){
 
-                R.id.nav_home -> nav_home_clicked()
-                R.id.nav_planner -> Toast.makeText(applicationContext, "Clicked Planner", Toast.LENGTH_SHORT).show()
-                R.id.nav_find_places -> Toast.makeText(applicationContext, "Clicked Find Places", Toast.LENGTH_SHORT).show()
-                R.id.nav_map -> nav_map_clicked()
-                R.id.nav_travel_videos -> Toast.makeText(applicationContext, "Clicked Travel Videos", Toast.LENGTH_SHORT).show()
-                R.id.nav_setting -> Toast.makeText(applicationContext, "Clicked Setting", Toast.LENGTH_SHORT).show()
+                R.id.nav_home -> navHomeClicked()
+                R.id.nav_planner -> navPlannerClicked()
+                R.id.nav_find_places -> navFindPlacesClicked()
+                R.id.nav_map -> navMapClicked()
+                R.id.nav_travel_videos -> navVideoClicked()
+                R.id.nav_setting -> navSettingClicked()
                 R.id.nav_log_out -> logout(mLogOutButton)
 
             }
@@ -124,22 +124,46 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun logout(view: View?) {
+    private fun logout(view: View?) {
         FirebaseAuth.getInstance().signOut()
         val intent = Intent(applicationContext, LoginActivity::class.java)
         startActivity(intent)
         finish()
     }
 
-    fun nav_home_clicked(){
+    private fun navHomeClicked(){
         Toast.makeText(applicationContext, "Clicked Home", Toast.LENGTH_SHORT).show()
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
 
-    fun nav_map_clicked(){
+    private fun navMapClicked(){
         Toast.makeText(applicationContext, "Clicked Map", Toast.LENGTH_SHORT).show()
         val intent = Intent(this, MapsActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun navVideoClicked(){
+        Toast.makeText(applicationContext, "Clicked Travel Video", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, VideoActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun navPlannerClicked(){
+        Toast.makeText(applicationContext, "Clicked Planner", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, PlannerActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun navFindPlacesClicked(){
+        Toast.makeText(applicationContext, "Clicked Find Places", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, FindPlacesActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun navSettingClicked(){
+        Toast.makeText(applicationContext, "Clicked Settings", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, SettingActivity::class.java)
         startActivity(intent)
     }
 

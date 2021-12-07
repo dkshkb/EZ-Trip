@@ -25,7 +25,6 @@ class RegisterActivity : AppCompatActivity() {
         val fAuth = FirebaseAuth.getInstance()
         val progressBar = findViewById<ProgressBar>(R.id.progressBar)
         val mLoginButton = findViewById<TextView>(R.id.register_textview_bottom)
-        val mCheatButton = findViewById<Button>(R.id.cheat_button)
 
 
         // If the user has already logged in, send them to main activity directly
@@ -98,9 +97,5 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        mCheatButton.setOnClickListener {
-            val intent = Intent(applicationContext, MainActivity::class.java)
-            startActivity(intent)
-        }
     }
 }
