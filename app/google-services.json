@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "485131537174",
+    "project_id": "ez-trip-87a43",
+    "storage_bucket": "ez-trip-87a43.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485131537174:android:0bcedcd43c870d0e891e37",
+        "android_client_info": {
+          "package_name": "edu.syr.ez_trip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "485131537174-ra5pigfe9peipgsskjrf3q7li9gkg6d1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV9UbbKbZXOpq1wmcjtSbb_Py196t4oIs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "485131537174-ra5pigfe9peipgsskjrf3q7li9gkg6d1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
