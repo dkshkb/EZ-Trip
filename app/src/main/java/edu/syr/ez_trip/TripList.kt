@@ -10,14 +10,14 @@ val trips = """
     [
         {
             "tripName": "NYC Trip",
-            "numDays": 3,
-            "tripDetails": "Day1: Central Park, Day2: MET, Day3: Empire State Building"
+            "tripDetails": "That is my first trip to NYC",
+            "dailyPlans":"Central Park;MET;Empire State Building"
         },
         
         {
             "tripName": "Syracuse Trip",
-            "numDays": 2,
-            "tripDetails": "Day1: Green Lake, Day2: Syracuse University"
+            "tripDetails": "Syracuse is known for heavy snow",
+            "dailyPlans":"Green Lake;Syracuse University"
         }
     ]
     

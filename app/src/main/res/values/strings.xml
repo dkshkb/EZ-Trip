@@ -20,4 +20,7 @@
     <string name="trip_planner">Trip Planner</string>
     <string name="display_plans">Display Plans</string>
     <string name="edit_plan">Edit Plan</string>
+    <string name="add_new_trip">Add New Trip</string>
+    <string name="trip_name">Trip Name</string>
+    <string name="trip_details">Trip Details</string>
 </resources>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradientbackground">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/create_account"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".RegisterActivity">
+
+        <TextView
+            android:id="@+id/app_name"
+            android:layout_width="192dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/fauna_one"
+            android:gravity="center_horizontal"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/add_new_trip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/fauna_one"
+            android:text="@string/add_new_trip"
+            android:textColor="#212121"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/app_name" />
+
+
+        <EditText
+            android:id="@+id/trip_name_text"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:autofillHints="Trip Name"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="@string/trip_name"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_new_trip" />
+
+
+        <EditText
+            android:id="@+id/trip_details_text"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:autofillHints="Trip Details"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="@string/trip_details"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trip_name_text" />
+
+        <EditText
+            android:id="@+id/trip_daily_plans_text"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:autofillHints="Daily Plans"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="Location1;Location2;Location3"
+            android:inputType="textVisiblePassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trip_details_text" />
+
+        <Button
+            android:id="@+id/add_new_trip_button"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/add_new_trip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trip_daily_plans_text" />
+
+        <TextView
+            android:id="@+id/back_to_planner_text"
+            android:layout_width="350dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="16dp"
+            android:text="Don't want to add any? Click to go back to Planner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_new_trip_button" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

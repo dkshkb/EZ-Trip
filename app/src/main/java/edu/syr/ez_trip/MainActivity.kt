@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var navView : NavigationView
     lateinit var nameTextView : TextView
     lateinit var emailTextView : TextView
+    lateinit var profilePicture : de.hdodenhof.circleimageview.CircleImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         navView = findViewById(R.id.nav_view)
         nameTextView = navView.getHeaderView(0).findViewById(R.id.user_name)
         emailTextView = navView.getHeaderView(0).findViewById(R.id.user_email)
+        profilePicture = navView.getHeaderView(0).findViewById(R.id.nav_header_profile_picture)
 
 
 
@@ -110,6 +112,13 @@ class MainActivity : AppCompatActivity() {
             }
 
             true
+        }
+
+
+        // When clicking on the profile picture at navigation drawer, it will go to profile activity
+        profilePicture.setOnClickListener{
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
         }
 
 

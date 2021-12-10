@@ -11,6 +11,7 @@ import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import java.lang.String.join
 
 class TripRecyclerViewAdapter(var items : ArrayList<TripData>) : RecyclerView.Adapter<TripRecyclerViewAdapter.ViewHolder>() {
 
@@ -28,8 +29,9 @@ class TripRecyclerViewAdapter(var items : ArrayList<TripData>) : RecyclerView.Ad
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
         val tripName = itemView.findViewById<TextView>(R.id.rvTripName)
-        val tripDays = itemView.findViewById<TextView>(R.id.rvNumberOfDays)
+        val tripDetails = itemView.findViewById<TextView>(R.id.rvTripDetails)
         val tripSelect = itemView.findViewById<CheckBox>(R.id.rvChx)
+        val tripDailyPlans = itemView.findViewById<TextView>(R.id.rvTripDailyPlans)
 
         init{
             tripSelect.setOnClickListener{
@@ -68,7 +70,9 @@ class TripRecyclerViewAdapter(var items : ArrayList<TripData>) : RecyclerView.Ad
         val trip = items[position]
         // NEED TO get the following data from firebase
         holder.tripName.setText(trip.tripName)
-        holder.tripDays.setText("Num of Days: " + trip.numDays.toString())
+        holder.tripDetails.setText("Details: " + trip.tripDetails)
+        holder.tripSelect.isChecked = trip.checked
+        holder.tripDailyPlans.setText("The following are daily plans:\n" + trip.dailyPlans.replace(";", "\n"))
     }
 
     override fun getItemCount(): Int {
@@ -110,10 +114,43 @@ class TripRecyclerViewAdapter(var items : ArrayList<TripData>) : RecyclerView.Ad
         notifyDataSetChanged()
     }
 
-    fun duplicateTrip(position: Int) {
-        var movie = items[position].copy()
-        items.add(position+1, movie)
-        notifyItemInserted(position+1)
+    fun deleteOneTrip(tripName : String){
+        for(j in items.indices){
+            if(items[j].equals(tripName)){
+                items.removeAt(j)
+                notifyItemRemoved(j-1)
+                break
+            }
+        }
+        notifyDataSetChanged()
     }
+
+    fun duplicateTrip(position: Int) : TripData {
+        var trip = items[position].copy()
+        trip.tripName += " copy"
+        items.add(position+1, trip)
+        notifyItemInserted(position+1)
+        return trip
+    }
+
+    fun addTrip(trip : TripData) {
+        items.add(trip)
+        notifyDataSetChanged()
+    }
+
+    fun updateTrip(updatedTrip: TripData){
+        for (trip in items){
+            if (trip.tripName == updatedTrip.tripName) {
+                trip.tripDetails = updatedTrip.tripDetails
+                trip.dailyPlans = updatedTrip.dailyPlans
+            }
+        }
+        notifyDataSetChanged()
+    }
+
+    fun refresh(){
+        notifyDataSetChanged()
+    }
+
 
 }

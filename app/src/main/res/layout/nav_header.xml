@@ -12,6 +12,7 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:id="@+id/nav_header_profile_picture"
         android:src="@drawable/profile_photo"/>
 
     <TextView
