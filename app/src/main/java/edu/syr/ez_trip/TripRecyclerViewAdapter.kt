@@ -35,7 +35,8 @@ class TripRecyclerViewAdapter(var items : ArrayList<TripData>) : RecyclerView.Ad
 
         init{
             tripSelect.setOnClickListener{
-                items[adapterPosition].checked = true
+                // When click on the check box, true -> false, false -> true
+                items[adapterPosition].checked = !items[adapterPosition].checked
             }
 
             itemView.setOnClickListener{
@@ -95,6 +96,21 @@ class TripRecyclerViewAdapter(var items : ArrayList<TripData>) : RecyclerView.Ad
             items[i].checked = true
         }
         notifyDataSetChanged()
+    }
+
+    fun countSelected() : Int{
+        var cnt = 0
+        for(i in 0 until items.size)
+            if(items[i].checked!!)
+                cnt += 1
+        return cnt
+    }
+
+    fun theOnlySelected() : TripData?{
+        for(i in 0 until items.size)
+            if(items[i].checked!!)
+                return items[i].copy()
+        return null
     }
 
     fun deleteTrips() {

@@ -38,26 +38,31 @@ class AddTripActivity : AppCompatActivity() {
         }
 
         addTripButton.setOnClickListener{
-            val tripName = tripNameText.text.toString()
-            val tripDetails = tripDetailsText.text.toString()
-            val tripDailyPlans = tripDailyPlanText.text.toString()
-            val newTrip = TripData(tripName, tripDetails, tripDailyPlans)
+            if (tripNameText.text.toString().length != 0) {
+                val tripName = tripNameText.text.toString()
+                val tripDetails = tripDetailsText.text.toString()
+                val tripDailyPlans = tripDailyPlanText.text.toString()
+                val newTrip = TripData(tripName, tripDetails, tripDailyPlans)
 
-            tripListRef.child(tripName).setValue(newTrip).addOnCompleteListener { task ->
+                tripListRef.child(tripName).setValue(newTrip).addOnCompleteListener { task ->
 
-                if (task.isSuccessful) {
-                    Toast.makeText(this, "New Trip Added Successfully", Toast.LENGTH_SHORT)
-                        .show()
+                    if (task.isSuccessful) {
+                        Toast.makeText(this, "New Trip Added Successfully", Toast.LENGTH_SHORT)
+                            .show()
 
-                    val intent = Intent(applicationContext, PlannerActivity::class.java)
-                    startActivity(intent)
-                } else {
-                    Toast.makeText(
-                        this,
-                        "Error! " + task.exception!!.message,
-                        Toast.LENGTH_SHORT
-                    ).show()
+                        val intent = Intent(applicationContext, PlannerActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        Toast.makeText(
+                            this,
+                            "Error! " + task.exception!!.message,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
+            } else {
+                Toast.makeText(this, "Trip Name can't be empty", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
 

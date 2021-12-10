@@ -10,10 +10,10 @@
         android:id="@+id/create_account"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".AddTripActivity">
+        tools:context=".EditTripActivity">
 
         <TextView
-            android:id="@+id/app_name"
+            android:id="@+id/app_name_edit"
             android:layout_width="192dp"
             android:layout_height="43dp"
             android:layout_marginTop="40dp"
@@ -28,20 +28,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/add_new_trip"
+            android:id="@+id/add_new_trip_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/fauna_one"
-            android:text="@string/add_new_trip"
+            android:text="@string/edit_the_following_trip"
             android:textColor="#212121"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/app_name" />
+            app:layout_constraintTop_toBottomOf="@+id/app_name_edit" />
 
 
         <EditText
-            android:id="@+id/trip_name_text"
+            android:id="@+id/trip_name_text_edit"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -53,11 +53,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_new_trip" />
+            app:layout_constraintTop_toBottomOf="@+id/add_new_trip_edit" />
 
 
         <EditText
-            android:id="@+id/trip_details_text"
+            android:id="@+id/trip_details_text_edit"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
@@ -69,10 +69,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trip_name_text" />
+            app:layout_constraintTop_toBottomOf="@+id/trip_name_text_edit" />
 
         <EditText
-            android:id="@+id/trip_daily_plans_text"
+            android:id="@+id/trip_daily_plans_text_edit"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
@@ -84,10 +84,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trip_details_text" />
+            app:layout_constraintTop_toBottomOf="@+id/trip_details_text_edit" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textView3_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -97,29 +97,29 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trip_daily_plans_text" />
+            app:layout_constraintTop_toBottomOf="@+id/trip_daily_plans_text_edit" />
 
         <Button
-            android:id="@+id/add_new_trip_button"
+            android:id="@+id/edit_trip_button"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
-            android:text="@string/add_new_trip"
+            android:text="@string/edit_trip"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3_edit" />
 
         <TextView
-            android:id="@+id/back_to_planner_text"
+            android:id="@+id/back_to_planner_text_edit"
             android:layout_width="350dp"
             android:layout_height="18dp"
             android:layout_marginTop="8dp"
-            android:text="Don't want to add any? Click to go back to Planner"
+            android:text="Don't want to edit it? Click to go back to Planner"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_new_trip_button" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_trip_button" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

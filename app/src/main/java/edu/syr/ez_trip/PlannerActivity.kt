@@ -43,17 +43,18 @@ class PlannerActivity : AppCompatActivity(), TripRecyclerViewAdapter.MyItemClick
         val database = Firebase.database
         val myRef = database.getReference("Trip Data")
         val tripListRef = myRef.child(firebaseUser?.uid as String)
-        ////////////////
-        tripListRef.child("LA Trip").child("dailyPlans").addValueEventListener(object: ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                Log.d(TAG, "LA tripDetails: " + snapshot.value)
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-
-        })
+        //////////////// JUST FOR TESTING, Please ignore
+//        tripListRef.child("LA Trip").child("dailyPlans").addValueEventListener(object: ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                Log.d(TAG, "LA tripDetails: " + snapshot.value)
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//
+//            }
+//
+//        })
 
         tripListRef.addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
@@ -136,18 +137,23 @@ class PlannerActivity : AppCompatActivity(), TripRecyclerViewAdapter.MyItemClick
                     selectedItems.add(adapter.items[i].tripName)
                 }
             }
-            //Deleted all selected trips from firebase
-            for (tripName : String in selectedItems){
-                tripListRef.child(tripName).setValue(null)
-                adapter.deleteOneTrip(tripName)
+            if(selectedItems.size == 0){
+                Toast.makeText(this,"Select at least one to delete!",Toast.LENGTH_SHORT).show()
+            } else {
+
+                //Deleted all selected trips from firebase
+                for (tripName: String in selectedItems) {
+                    tripListRef.child(tripName).setValue(null)
+                    adapter.deleteOneTrip(tripName)
+                }
+
+
+                // Refresh this activity
+                val intent = Intent(this, PlannerActivity::class.java)
+                startActivity(intent)
+
+                //adapter.deleteTrips()
             }
-
-
-            // Refresh this activity
-            val intent = Intent(this, PlannerActivity::class.java)
-            startActivity(intent)
-
-            //adapter.deleteTrips()
         }
 
         val add = findViewById<View>(R.id.add)
@@ -167,16 +173,31 @@ class PlannerActivity : AppCompatActivity(), TripRecyclerViewAdapter.MyItemClick
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId){
-            R.id.displayPlan -> {
-                Toast.makeText(this, "Clicked Display Plans",Toast.LENGTH_SHORT).show()
-//                val intent = Intent(this, task1::class.java)
-//                startActivity(intent)
+            R.id.addTrip -> {
+                Toast.makeText(this, "Clicked Add Trip",Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, AddTripActivity::class.java)
+                startActivity(intent)
             }
 
-            R.id.editPlan -> {
-                Toast.makeText(this, "Clicked Edit Plan",Toast.LENGTH_SHORT).show()
+            R.id.editTrip -> {
+//                Toast.makeText(this, "Clicked Edit Trip",Toast.LENGTH_SHORT).show()
 //                val intent = Intent(this, task2::class.java)
 //                startActivity(intent)
+                Log.d(TAG, "numSelected: " + adapter.countSelected().toString())
+
+                if (adapter.countSelected() == 1){
+                    // Go to the EditTripActivity
+                    Toast.makeText(this, "Clicked Edit Trip",Toast.LENGTH_SHORT).show()
+                    Log.d(TAG, "trip: " + adapter?.theOnlySelected()?.tripName)
+                    val intent = Intent(this, EditTripActivity::class.java)
+                    intent.putExtra("tripNameSelected", adapter?.theOnlySelected()?.tripName)
+                    startActivity(intent)
+                }
+
+                else {
+                    Toast.makeText(this, "You can only edit one trip at a time",Toast.LENGTH_SHORT).show()
+                }
+
             }
         }
 

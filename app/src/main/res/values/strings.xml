@@ -23,4 +23,8 @@
     <string name="add_new_trip">Add New Trip</string>
     <string name="trip_name">Trip Name</string>
     <string name="trip_details">Trip Details</string>
+    <string name="dailyPlansFormatInstruction">Please follow this format for Daily Plans\nDay 1: AAA;Day 2: BBB;Day 3: CCC\n(Each day is separated by semi-colon(;))</string>
+    <string name="add_plan">Add Plan</string>
+    <string name="edit_the_following_trip">Edit the following trip</string>
+    <string name="edit_trip">Edit Trip</string>
 </resources>
