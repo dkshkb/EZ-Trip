@@ -87,7 +87,7 @@ class EditTripActivity : AppCompatActivity() {
                 tripListRef.child(tripName).setValue(newTrip).addOnCompleteListener { task ->
 
                     if (task.isSuccessful) {
-                        Toast.makeText(this, "New Trip Added Successfully", Toast.LENGTH_SHORT)
+                        Toast.makeText(this, "Trip Edited Successfully", Toast.LENGTH_SHORT)
                             .show()
 
                         val intent = Intent(applicationContext, PlannerActivity::class.java)

@@ -27,4 +27,7 @@
     <string name="add_plan">Add Plan</string>
     <string name="edit_the_following_trip">Edit the following trip</string>
     <string name="edit_trip">Edit Trip</string>
+    <string name="modify_your_profile">Modify your profile</string>
+    <string name="go_back_to_the_main_activity">Go back to the main activity</string>
+    <string name="submit_change">Submit Change</string>
 </resources>
