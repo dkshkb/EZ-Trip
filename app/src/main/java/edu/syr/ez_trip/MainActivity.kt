@@ -1,6 +1,8 @@
 package edu.syr.ez_trip
 
+import android.app.Dialog
 import android.content.ContentValues.TAG
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,9 +10,11 @@ import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.get
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
@@ -119,6 +123,54 @@ class MainActivity : AppCompatActivity() {
         profilePicture.setOnClickListener{
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
+        }
+
+        nameTextView.setOnClickListener{
+            var builder : AlertDialog.Builder = AlertDialog.Builder(this@MainActivity)
+            builder.setMessage("Do you want to change your name to the following input?")
+            builder.setTitle("Change Name")
+            var edittext = EditText(this@MainActivity)
+            edittext.setText(nameTextView.text.toString())
+            builder.setView(edittext)
+            builder.setPositiveButton("Yes") { dialog, id ->
+                var newName : String = edittext.text.toString()
+                Log.d(TAG, "new name: " + newName)
+
+                if (newName.isEmpty()){
+                    Toast.makeText(this, "Name can't be empty!", Toast.LENGTH_SHORT)
+                        .show()
+                } else {
+                    child.child("fullName").setValue(newName).addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(this, "Name modified successfully!", Toast.LENGTH_SHORT)
+                                .show()
+                        } else {
+                            Toast.makeText(
+                                this,
+                                "Error! " + task.exception!!.message,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                }
+
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+
+            builder.setNegativeButton("No") { dialog, id ->
+
+                Log.d(TAG, "Negative Button")
+
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+
+            builder.show()
+        }
+
+        emailTextView.setOnClickListener{
+            Toast.makeText(applicationContext, "You can't modify your email", Toast.LENGTH_SHORT).show()
         }
 
 
