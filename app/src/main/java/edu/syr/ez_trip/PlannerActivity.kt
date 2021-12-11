@@ -22,6 +22,8 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
+import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator
 
 class PlannerActivity : AppCompatActivity(), TripRecyclerViewAdapter.MyItemClickListener {
 
@@ -113,7 +115,17 @@ class PlannerActivity : AppCompatActivity(), TripRecyclerViewAdapter.MyItemClick
         rview.layoutManager = layoutManager
 
 //        adapter = TripRecyclerViewAdapter(ArrayList(TripList().tripList))
-        rview.adapter = adapter
+//        rview.adapter = adapter
+
+        // Use Animation from Wasabeef library
+        rview.adapter = AlphaInAnimationAdapter(adapter).apply {
+            setDuration(1000)
+            setStartPosition(200)
+            setFirstOnly(false)
+        }
+
+        // Use Animation from Wasabeef library
+        rview.itemAnimator = SlideInLeftAnimator()
 
         adapter.setMyItemClickListener(this)
 

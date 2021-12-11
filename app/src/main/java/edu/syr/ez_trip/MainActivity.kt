@@ -126,6 +126,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         nameTextView.setOnClickListener{
+
+            // Add a dialog to modify user full name from firebase
             var builder : AlertDialog.Builder = AlertDialog.Builder(this@MainActivity)
             builder.setMessage("Do you want to change your name to the following input?")
             builder.setTitle("Change Name")
@@ -162,8 +164,8 @@ class MainActivity : AppCompatActivity() {
 
                 Log.d(TAG, "Negative Button")
 
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
+//                val intent = Intent(this, MainActivity::class.java)
+//                startActivity(intent)
             }
 
             builder.show()
