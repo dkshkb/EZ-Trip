@@ -44,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
 
             //rogressBar.setVisibility(View.VISIBLE);
 
-            //register the user into firebase
+            //login the user into firebase
             fAuth!!.signInWithEmailAndPassword(email, pwd).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(this@LoginActivity, "Login Successfully", Toast.LENGTH_SHORT).show()
